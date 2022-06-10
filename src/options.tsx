@@ -2,21 +2,17 @@ import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 
 const Options = () => {
-  const [color, setColor] = useState<string>("");
+  const [dsn, setDsn] = useState<string>("");
+  const [enabled, setEnabled] = useState<boolean>(false);
   const [status, setStatus] = useState<string>("");
-  const [like, setLike] = useState<boolean>(false);
 
   useEffect(() => {
     // Restores select box and checkbox state using the preferences
     // stored in chrome.storage.
-    chrome.storage.sync.get(
-      {
-        favoriteColor: "red",
-        likesColor: true,
-      },
+    chrome.storage.sync.get(['dsn', 'enabled'],
       (items) => {
-        setColor(items.favoriteColor);
-        setLike(items.likesColor);
+        setDsn(items.dsn);
+        setEnabled(items.enabled);
       }
     );
   }, []);
@@ -25,8 +21,8 @@ const Options = () => {
     // Saves options to chrome.storage.sync.
     chrome.storage.sync.set(
       {
-        favoriteColor: color,
-        likesColor: like,
+        dsn,
+        enabled,
       },
       () => {
         // Update status to let user know options were saved.
@@ -42,26 +38,20 @@ const Options = () => {
   return (
     <>
       <div>
-        Favorite color: <select
-          value={color}
-          onChange={(event) => setColor(event.target.value)}
-        >
-          <option value="red">red</option>
-          <option value="green">green</option>
-          <option value="blue">blue</option>
-          <option value="yellow">yellow</option>
-        </select>
+        Sentry DSN: <input
+          value={dsn}
+          onChange={(event) => setDsn(event.target.value)}
+        />
       </div>
+
       <div>
-        <label>
-          <input
-            type="checkbox"
-            checked={like}
-            onChange={(event) => setLike(event.target.checked)}
-          />
-          I like colors.
-        </label>
+        Enabled: <input
+          type="checkbox"
+          checked={enabled}
+          onChange={(event) => setEnabled(!!event.target.checked)}
+        />
       </div>
+
       <div>{status}</div>
       <button onClick={saveOptions}>Save</button>
     </>
