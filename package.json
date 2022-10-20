@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@sentry/browser": "^6.19.6",
-    "@sentry/replay": "file:.yalc/@sentry/replay",
+    "@sentry/replay": "^0.6.4",
     "@sentry/tracing": "^6.19.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
