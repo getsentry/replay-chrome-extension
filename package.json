@@ -1,7 +1,7 @@
 {
-  "name": "chrome-extension-typescript-starter",
+  "name": "sentry-replay-extension",
   "version": "1.0.0",
-  "description": "chrome-extension-typescript-starter",
+  "description": "extension to debug Sentry Session Replays",
   "main": "index.js",
   "scripts": {
     "watch": "webpack --config webpack/webpack.dev.js --watch",
@@ -14,12 +14,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/chibat/chrome-extension-typescript-starter.git"
+    "url": "https://github.com/getsentry/replay-chrome-extension"
   },
   "dependencies": {
-    "@sentry/browser": "^6.19.6",
-    "@sentry/replay": "^0.6.4",
-    "@sentry/tracing": "^6.19.6",
+    "@sentry/browser": "^7.61.0",
+    "@sentry/tracing": "^7.61.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "rrweb": "^1.1.3"

@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
 
-  "name": "Chrome Extension TypeScript Starter",
-  "description": "Chrome Extension, TypeScript, Visual Studio Code",
+  "name": "Sentry Session Replay Debugger",
+  "description": "Inject and debug Sentry Session Replays",
   "version": "1.0",
 
   "options_ui": {

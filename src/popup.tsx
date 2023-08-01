@@ -78,7 +78,6 @@ const Popup = () => {
       >
         Inject Sentry
       </button>
-      <button onClick={changeBackground}>change background</button>
     </>
   );
 };
